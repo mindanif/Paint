@@ -33,7 +33,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(30, 45);
+            this.panel1.Location = new System.Drawing.Point(26, 35);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(731, 359);
             this.panel1.TabIndex = 0;
@@ -47,6 +47,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
