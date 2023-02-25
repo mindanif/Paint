@@ -5,14 +5,12 @@ namespace Paint
         Bitmap map = new Bitmap(100, 100);
         Graphics graphics;
         Pen pen = new Pen(Color.Black, 3f);
-        Color phoneColor;
         private bool isMouse = false;
         private ArrayPoints arrayPoints = new ArrayPoints(2);
         public Form1()
         {
             InitializeComponent();
             SetSize();
-            phoneColor = Color.White;
         }
 
 
@@ -49,8 +47,6 @@ namespace Paint
         {
             isMouse = true;
             arrayPoints = new ArrayPoints(2);
-
-
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -70,75 +66,15 @@ namespace Paint
             }
         }
 
-        private void phonecolorselect_Click(object sender, EventArgs e)
-        {
-            using (ColorDialog dialog = new ColorDialog())
-            {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    // Устанавливаем цвет фона PictureBox в выбранный цвет
-                    pictureBox1.BackColor = dialog.Color;
-
-                    // Сохраняем выбранный цвет в переменную
-                    phoneColor = dialog.Color;
-                }
-            }
-        }
-        private void LoadImage(string fileName)
-        {
-            try
-            {
-                // Загружаем изображение из файла
-                Image image = Image.FromFile(fileName);
-
-                // Отображаем изображение в PictureBox
-                pictureBox1.Image = image;
-
-                // Обновляем текущий Bitmap для рисования поверх загруженного изображения
-                map = new Bitmap(image);
-
-                // Обновляем Graphics объект для нового Bitmap
-                graphics = Graphics.FromImage(map);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button14_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog dialog = new SaveFileDialog())
             {
-                dialog.Filter = "JPEG files (*.jpeg;*.jpg)|*.jpeg;";
-
+                dialog.Filter = "PNG files (*.png)|*.png|All files (*.*)|*.*";
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Создаем новое изображение с выбранным фоном
-                    Bitmap bmp = new Bitmap(map.Width, map.Height);
-                    using (Graphics g = Graphics.FromImage(bmp))
-                    {
-                        g.Clear(phoneColor);
-                        g.DrawImage(map, 0, 0);
-                    }
-
-                    // Сохраняем новое изображение в формате JPEG
-                    bmp.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-            }
-        }
-
-        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog dialog = new OpenFileDialog())
-            {
-                dialog.Filter = "JPEG files (*.jpeg;*.jpg)|*.jpeg;";
-
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    // Загружаем изображение из файла
-                    LoadImage(dialog.FileName);
+                    
+                    map.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
                 }
             }
         }
