@@ -48,14 +48,22 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             label1 = new Label();
             trackBar1 = new TrackBar();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            menuStrip2 = new MenuStrip();
+            файлToolStripMenuItem = new ToolStripMenuItem();
+            сохранитьToolStripMenuItem = new ToolStripMenuItem();
+            загрузитьToolStripMenuItem = new ToolStripMenuItem();
+            panel2 = new Panel();
+            phonecolorselect = new Button();
             colorDialog1 = new ColorDialog();
-            button14 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
+            flowLayoutPanel3.SuspendLayout();
+            menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -92,13 +100,15 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 2, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 3, 0);
-            tableLayoutPanel1.Controls.Add(button14, 0, 0);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel3, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel2, 1, 0);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(942, 118);
-            tableLayoutPanel1.TabIndex = 1;
+            tableLayoutPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
@@ -115,6 +125,7 @@
             flowLayoutPanel1.Controls.Add(button12);
             flowLayoutPanel1.Controls.Add(button13);
             flowLayoutPanel1.Controls.Add(button5);
+            flowLayoutPanel1.Controls.Add(phonecolorselect);
             flowLayoutPanel1.Location = new Point(473, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(229, 112);
@@ -293,15 +304,61 @@
             trackBar1.TabIndex = 1;
             trackBar1.Scroll += trackBar1_ValueChanged;
             // 
-            // button14
+            // flowLayoutPanel3
             // 
-            button14.Location = new Point(3, 3);
-            button14.Name = "button14";
-            button14.Size = new Size(94, 29);
-            button14.TabIndex = 2;
-            button14.Text = "button14";
-            button14.UseVisualStyleBackColor = true;
-            button14.Click += button14_Click;
+            flowLayoutPanel3.Controls.Add(menuStrip2);
+            flowLayoutPanel3.Location = new Point(3, 3);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(229, 112);
+            flowLayoutPanel3.TabIndex = 4;
+            // 
+            // menuStrip2
+            // 
+            menuStrip2.ImageScalingSize = new Size(20, 20);
+            menuStrip2.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem });
+            menuStrip2.Location = new Point(0, 0);
+            menuStrip2.Name = "menuStrip2";
+            menuStrip2.Size = new Size(67, 28);
+            menuStrip2.TabIndex = 0;
+            menuStrip2.Text = "menuStrip2";
+            // 
+            // файлToolStripMenuItem
+            // 
+            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { сохранитьToolStripMenuItem, загрузитьToolStripMenuItem });
+            файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            файлToolStripMenuItem.Size = new Size(59, 24);
+            файлToolStripMenuItem.Text = "Файл";
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            сохранитьToolStripMenuItem.Size = new Size(224, 26);
+            сохранитьToolStripMenuItem.Text = "Сохранить";
+            сохранитьToolStripMenuItem.Click += сохранитьToolStripMenuItem_Click;
+            // 
+            // загрузитьToolStripMenuItem
+            // 
+            загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
+            загрузитьToolStripMenuItem.Size = new Size(224, 26);
+            загрузитьToolStripMenuItem.Text = "Загрузить";
+            загрузитьToolStripMenuItem.Click += загрузитьToolStripMenuItem_Click;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(238, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(229, 112);
+            panel2.TabIndex = 5;
+            // 
+            // phonecolorselect
+            // 
+            phonecolorselect.Location = new Point(69, 75);
+            phonecolorselect.Name = "phonecolorselect";
+            phonecolorselect.Size = new Size(94, 29);
+            phonecolorselect.TabIndex = 3;
+            phonecolorselect.Text = "Цвет фона";
+            phonecolorselect.UseVisualStyleBackColor = true;
+            phonecolorselect.Click += phonecolorselect_Click;
             // 
             // Form1
             // 
@@ -319,6 +376,10 @@
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
+            flowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel3.PerformLayout();
+            menuStrip2.ResumeLayout(false);
+            menuStrip2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -345,6 +406,12 @@
         private TrackBar trackBar1;
         private ColorDialog colorDialog1;
         private PictureBox pictureBox1;
-        private Button button14;
+        private Button phonecolorselect;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private MenuStrip menuStrip2;
+        private ToolStripMenuItem файлToolStripMenuItem;
+        private ToolStripMenuItem сохранитьToolStripMenuItem;
+        private ToolStripMenuItem загрузитьToolStripMenuItem;
+        private Panel panel2;
     }
 }
