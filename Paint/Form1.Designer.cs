@@ -374,14 +374,14 @@
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
             this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
-            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // panel2
             // 
