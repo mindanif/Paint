@@ -451,7 +451,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion

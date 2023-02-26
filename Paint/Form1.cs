@@ -7,6 +7,7 @@ namespace Paint
         private readonly List<Figure> gfs = new List<Figure>();
         Bitmap map = new Bitmap(100, 100);
         Graphics graphics;
+
         private readonly Painter p; 
         Color phoneColor;
         Color selectedColor;
@@ -37,11 +38,11 @@ namespace Paint
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            //на нажатие кнопки мыши (любой) будет создаваться фигура
+            //Г­Г  Г­Г Г¦Г ГІГЁГҐ ГЄГ­Г®ГЇГЄГЁ Г¬Г»ГёГЁ (Г«ГѕГЎГ®Г©) ГЎГіГ¤ГҐГІ Г±Г®Г§Г¤Г ГўГ ГІГјГ±Гї ГґГЁГЈГіГ°Г 
             Figure? gf = CreateFigure();
             
             if (gf != null)
-            {//сразу при создании добавим ей первую точку, зададим цвет и добавим фигуру в пулл русуемых фигур(gfs)
+            {//Г±Г°Г Г§Гі ГЇГ°ГЁ Г±Г®Г§Г¤Г Г­ГЁГЁ Г¤Г®ГЎГ ГўГЁГ¬ ГҐГ© ГЇГҐГ°ГўГіГѕ ГІГ®Г·ГЄГі, Г§Г Г¤Г Г¤ГЁГ¬ Г¶ГўГҐГІ ГЁ Г¤Г®ГЎГ ГўГЁГ¬ ГґГЁГЈГіГ°Гі Гў ГЇГіГ«Г« Г°ГіГ±ГіГҐГ¬Г»Гµ ГґГЁГЈГіГ°(gfs)
                 gf.AddPoint(e.Location);
                 gf.Color1 = selectedColor;
                 gfs.Add(gf);
@@ -55,7 +56,7 @@ namespace Paint
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {//при движении мышм добавляем точку для карандаша или обновляем точку у круга или прямоугольника, затем перерисовываем фигуры из пулла
+        {//ГЇГ°ГЁ Г¤ГўГЁГ¦ГҐГ­ГЁГЁ Г¬Г»ГёГ¬ Г¤Г®ГЎГ ГўГ«ГїГҐГ¬ ГІГ®Г·ГЄГі Г¤Г«Гї ГЄГ Г°Г Г­Г¤Г ГёГ  ГЁГ«ГЁ Г®ГЎГ­Г®ГўГ«ГїГҐГ¬ ГІГ®Г·ГЄГі Гі ГЄГ°ГіГЈГ  ГЁГ«ГЁ ГЇГ°ГїГ¬Г®ГіГЈГ®Г«ГјГ­ГЁГЄГ , Г§Г ГІГҐГ¬ ГЇГҐГ°ГҐГ°ГЁГ±Г®ГўГ»ГўГ ГҐГ¬ ГґГЁГЈГіГ°Г» ГЁГ§ ГЇГіГ«Г«Г 
             if (downOn is { } point)
             {
                 gfs[^1].AddPoint(e.Location);
@@ -63,16 +64,17 @@ namespace Paint
             }
         }
 
+
         private void phonecolorselect_Click(object sender, EventArgs e)
         {
             using (ColorDialog dialog = new ColorDialog())
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Устанавливаем цвет фона PictureBox в выбранный цвет
+                    // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ Г¶ГўГҐГІ ГґГ®Г­Г  PictureBox Гў ГўГ»ГЎГ°Г Г­Г­Г»Г© Г¶ГўГҐГІ
                     pictureBox1.BackColor = dialog.Color;
 
-                    // Сохраняем выбранный цвет в переменную
+                    // Г‘Г®ГµГ°Г Г­ГїГҐГ¬ ГўГ»ГЎГ°Г Г­Г­Г»Г© Г¶ГўГҐГІ Гў ГЇГҐГ°ГҐГ¬ГҐГ­Г­ГіГѕ
                     phoneColor = dialog.Color;
                 }
             }
@@ -81,16 +83,16 @@ namespace Paint
         {
             try
             {
-                // Загружаем изображение из файла
+                // Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ ГЁГ§ ГґГ Г©Г«Г 
                 Image image = Image.FromFile(fileName);
 
-                // Отображаем изображение в PictureBox
+                // ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Гў PictureBox
                 pictureBox1.Image = image;
 
-                // Обновляем текущий Bitmap для рисования поверх загруженного изображения
+                // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ ГІГҐГЄГіГ№ГЁГ© Bitmap Г¤Г«Гї Г°ГЁГ±Г®ГўГ Г­ГЁГї ГЇГ®ГўГҐГ°Гµ Г§Г ГЈГ°ГіГ¦ГҐГ­Г­Г®ГЈГ® ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї
                 map = new Bitmap(image);
 
-                // Обновляем Graphics объект для нового Bitmap
+                // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ Graphics Г®ГЎГєГҐГЄГІ Г¤Г«Гї Г­Г®ГўГ®ГЈГ® Bitmap
                 graphics = Graphics.FromImage(map);
 
             }
@@ -100,7 +102,7 @@ namespace Paint
             }
         }
 
-        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Г±Г®ГµГ°Г Г­ГЁГІГјToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog dialog = new SaveFileDialog())
             {
@@ -108,7 +110,7 @@ namespace Paint
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Создаем новое изображение с выбранным фоном
+                    // Г‘Г®Г§Г¤Г ГҐГ¬ Г­Г®ГўГ®ГҐ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Г± ГўГ»ГЎГ°Г Г­Г­Г»Г¬ ГґГ®Г­Г®Г¬
                     Bitmap bmp = new Bitmap(map.Width, map.Height);
                     using (Graphics g = Graphics.FromImage(bmp))
                     {
@@ -116,13 +118,13 @@ namespace Paint
                         g.DrawImage(map, 0, 0);
                     }
 
-                    // Сохраняем новое изображение в формате JPEG
+                    // Г‘Г®ГµГ°Г Г­ГїГҐГ¬ Г­Г®ГўГ®ГҐ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Гў ГґГ®Г°Г¬Г ГІГҐ JPEG
                     bmp.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                 }
             }
         }
 
-        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Г§Г ГЈГ°ГіГ§ГЁГІГјToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
@@ -130,10 +132,11 @@ namespace Paint
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Загружаем изображение из файла
+                    // Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ ГЁГ§ ГґГ Г©Г«Г 
                     LoadImage(dialog.FileName);
                 }
             }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -141,7 +144,7 @@ namespace Paint
 
         }
 
-        private Figure CreateFigure()//создана с целью централизации генерации объектов
+        private Figure CreateFigure()//Г±Г®Г§Г¤Г Г­Г  Г± Г¶ГҐГ«ГјГѕ Г¶ГҐГ­ГІГ°Г Г«ГЁГ§Г Г¶ГЁГЁ ГЈГҐГ­ГҐГ°Г Г¶ГЁГЁ Г®ГЎГєГҐГЄГІГ®Гў
         {
             if (radioButton1.Checked)
             {
@@ -161,6 +164,79 @@ namespace Paint
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             p.Paint(e.Graphics);
+        }
+
+        private void phonecolorselect_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog dialog = new ColorDialog())
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ Г¶ГўГҐГІ ГґГ®Г­Г  PictureBox Гў ГўГ»ГЎГ°Г Г­Г­Г»Г© Г¶ГўГҐГІ
+                    pictureBox1.BackColor = dialog.Color;
+
+                    // Г‘Г®ГµГ°Г Г­ГїГҐГ¬ ГўГ»ГЎГ°Г Г­Г­Г»Г© Г¶ГўГҐГІ Гў ГЇГҐГ°ГҐГ¬ГҐГ­Г­ГіГѕ
+                    phoneColor = dialog.Color;
+                }
+            }
+        }
+        private void LoadImage(string fileName)
+        {
+            try
+            {
+                // Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ ГЁГ§ ГґГ Г©Г«Г 
+                Image image = Image.FromFile(fileName);
+
+                // ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Гў PictureBox
+                pictureBox1.Image = image;
+
+                // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ ГІГҐГЄГіГ№ГЁГ© Bitmap Г¤Г«Гї Г°ГЁГ±Г®ГўГ Г­ГЁГї ГЇГ®ГўГҐГ°Гµ Г§Г ГЈГ°ГіГ¦ГҐГ­Г­Г®ГЈГ® ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї
+                map = new Bitmap(image);
+
+                // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ Graphics Г®ГЎГєГҐГЄГІ Г¤Г«Гї Г­Г®ГўГ®ГЈГ® Bitmap
+                graphics = Graphics.FromImage(map);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Г±Г®ГµГ°Г Г­ГЁГІГјToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "JPEG files (*.jpeg;*.jpg)|*.jpeg;";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Г‘Г®Г§Г¤Г ГҐГ¬ Г­Г®ГўГ®ГҐ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Г± ГўГ»ГЎГ°Г Г­Г­Г»Г¬ ГґГ®Г­Г®Г¬
+                    Bitmap bmp = new Bitmap(map.Width, map.Height);
+                    using (Graphics g = Graphics.FromImage(bmp))
+                    {
+                        g.Clear(phoneColor);
+                        g.DrawImage(map, 0, 0);
+                    }
+
+                    // Г‘Г®ГµГ°Г Г­ГїГҐГ¬ Г­Г®ГўГ®ГҐ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Гў ГґГ®Г°Г¬Г ГІГҐ JPEG
+                    bmp.Save(dialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+            }
+        }
+
+        private void Г§Г ГЈГ°ГіГ§ГЁГІГјToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "JPEG files (*.jpeg;*.jpg)|*.jpeg;";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ ГЁГ§ ГґГ Г©Г«Г 
+                    LoadImage(dialog.FileName);
+                }
+            }
         }
     }
 }
